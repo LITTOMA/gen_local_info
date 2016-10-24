@@ -8,11 +8,8 @@ def mkdir(path):
 url = 'http://3dsdb.com/xml.php'
 xml = urllib2.urlopen(url).read()
 
-#xml = open('3dsreleases.xml','r').read()
-
 partten = r'<release>[\s|\S]+?</release>'
-partten = re.compile(partten)
-matches = partten.findall(xml)
+matches = re.compile(partten).findall(xml)
 
 tidpar = re.compile(r'<titleid>(.+?)</titleid>')
 regpar = re.compile(r'<region>(.+?)</region>')
